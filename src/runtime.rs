@@ -1,7 +1,7 @@
 // Copyright (c) SimpleStaking and Tezedge Contributors
 // SPDX-License-Identifier: MIT
 
-use ocaml_sys::{caml_shutdown, caml_startup};
+//use ocaml_sys::{caml_shutdown, caml_startup};
 use std::marker::PhantomData;
 
 use crate::{memory::GCFrame, memory::OCamlRef, value::OCaml};
@@ -12,6 +12,7 @@ pub struct OCamlRuntime {
 }
 
 impl OCamlRuntime {
+    /*
     /// Initializes the OCaml runtime and returns an OCaml runtime handle.
     pub fn init() -> Self {
         OCamlRuntime::init_persistent();
@@ -24,6 +25,7 @@ impl OCamlRuntime {
         let c_args = vec![arg0, core::ptr::null()];
         unsafe { caml_startup(c_args.as_ptr()) }
     }
+    */
 
     /// Recover the runtime handle.
     ///
@@ -61,11 +63,13 @@ impl OCamlRuntime {
     }
 }
 
+/*
 impl Drop for OCamlRuntime {
     fn drop(&mut self) {
         unsafe { caml_shutdown() }
     }
 }
+*/
 
 struct OCamlBlockingSection {}
 
